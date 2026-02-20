@@ -1,0 +1,86 @@
+% EXPERIMENT: Eigenvalue Based Stability Analysis
+% Economic Interaction Matrix
+clc;
+clear;
+close all;
+disp("  Eigenvalue Based Stability of Economic System ");
+% Example Matrix (You can replace with your own)
+A = [0.4  0.2  0.1;
+     0.1  0.5  0.2;
+     0.0  0.3  0.6];
+disp("Economic Interaction Matrix A:");
+disp(A);
+% Step 2: Compute Eigenvalues
+eigvals = eig(A);
+disp("Eigenvalues of A:");
+disp(eigvals);
+% Step 3: Spectral Radius
+rho = max(abs(eigvals));
+disp("Spectral Radius (max |lambda|): ");
+disp(rho);
+% Step 4: Discrete-Time Stability Check
+% Condition: |lambda| < 1
+if all(abs(eigvals) < 1)
+    disp("System is DISCRETE-TIME STABLE (Shock dies out).");
+else
+    disp("System is DISCRETE-TIME UNSTABLE (Shock grows).");
+end
+% Step 5: Plot Eigenvalues in Complex Plane
+
+figure;
+plot(real(eigvals), imag(eigvals), 'ro', ...
+    'MarkerSize', 10, 'LineWidth', 2);
+
+hold on;
+grid on;
+
+% Draw Unit Circle
+theta = linspace(0, 2*pi, 300);
+plot(cos(theta), sin(theta), 'b--', 'LineWidth', 1.5);
+
+xlabel("Real Part");
+ylabel("Imaginary Part");
+title("Eigenvalue Stability Plot (Unit Circle Test)");
+legend("Eigenvalues", "Unit Circle");
+
+% Step 6: Simulate Economic Shock Propagation
+% x(t+1) = A*x(t)
+
+T = 20; % number of time steps
+% Initial shock in Sector 1
+x0 = [1; 0; 0];
+
+% Store results
+x = zeros(length(x0), T);
+x(:,1) = x0;
+
+% Time evolution
+for t = 2:T
+    x(:,t) = A * x(:,t-1);
+end
+% Step 7: Plot Sector Response Over Time
+
+figure;
+plot(1:T, x', 'LineWidth', 2);
+
+xlabel("Time Step");
+ylabel("Economic Activity Level");
+title("Shock Response of Economic Sectors");
+legend("Sector 1", "Sector 2", "Sector 3");
+grid on;
+
+% Final Report
+disp("FINAL STABILITY REPORT");
+disp("Eigenvalues:");
+disp(eigvals);
+
+disp("Spectral Radius:");
+disp(rho);
+
+if rho < 1
+    disp("Conclusion: Stable economy (interactions dampen shocks).");
+elseif rho == 1
+    disp("Conclusion: Marginal stability (system is fragile).");
+else
+    disp("Conclusion: Unstable economy (feedback amplifies shocks).");
+end
