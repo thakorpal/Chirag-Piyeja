@@ -1,0 +1,86 @@
+Project Overview
+This project focuses on determining the stability of an economic system by evaluating the eigenvalues of an economic interaction matrix A using MATLAB. The matrix represents how various economic sectors influence each other over time.
+Eigenvalues reveal how the economy reacts to external shocks—sudden changes in supply, demand, policy, or market behavior.
+If all eigenvalues lie inside the unit circle, the economy is stable, meaning shocks gradually disappear and the system returns to equilibrium.
+If any eigenvalue lies outside the unit circle, disturbances grow with time, indicating an unstable economic system.
+This project demonstrates how computational tools and eigenvalue-based methods can be used to analyze dynamic responses in economic models.
+→ Objective
+The main objectives of this project are:
+To understand how eigenvalues determine economic stability
+To analyze how an economy responds to shocks
+To compute eigenvalues of an interaction matrix using MATLAB
+To apply the spectral radius test for discrete-time stability
+To simulate shock propagation over multiple economic sectors
+To visualize eigenvalues and sector responses graphically
+The aim is to:
+Compute eigenvalues of A
+Determine whether shocks die out or grow
+Visualize the stability region on the complex plane
+Simulate economic activity over time
+
+Core assumptions:
+The system is linear and time-invariant
+Interactions occur in discrete time steps
+No external forces act after the initial shock
+Evolution is computed for multiple time steps.
+
+→ Methodology
+Define the economic interaction matrix A
+Compute eigenvalues using MATLAB's eig() function
+Calculate the spectral radius
+Apply discrete-time stability check
+Plot eigenvalues on the complex plane with the unit circle
+Initialize a shock and simulate economic response
+Plot activity levels of all economic sectors over time
+Generate a stability conclusion based on eigenvalues
+
+→ MATLAB Implementation
+The MATLAB script performs:
+Printing and inspection of the interaction matrix
+Calculation of eigenvalues and spectral radius
+Stability decision based on magnitude of eigenvalues
+Graphical plotting of eigenvalues on the complex plane
+Construction of the unit circle for stability reference
+Simulation of shock propagation for 20 time steps
+Visualization of sector-wise responses
+The code clearly separates stability analysis, visualization, and shock simulation for easier interpretation.
+
+→ Results
+The computational analysis provides:
+Eigenvalues of the matrix A
+Real and imaginary parts location on the complex plane
+Spectral radius value
+Stability conclusion (stable/unstable)
+Time-domain plot showing shock propagation
+Typical outcomes include:
+Identification of stability behavior
+
+Observation of how quickly shocks decay or grow
+Sector-by-sector sensitivity to initial disturbances
+These results give insight into dynamic behavior within the economic system.
+→ Key Concepts Demonstrated
+This project highlights:
+Eigenvalue-based stability analysis
+Discrete-time system modeling
+Shock propagation in economic networks
+Spectral radius interpretation
+MATLAB tools for dynamic system visualization
+→ Engineering / Economic Significance
+Eigenvalue stability analysis is crucial in:
+Macroeconomic forecasting
+Policy impact assessment
+Financial risk evaluation
+Dynamic system modeling
+Control of economic fluctuations
+By examining eigenvalues, economists can predict whether a system will recover from shocks or diverge into instability.
+
+→ Project Summary
+This project successfully demonstrates how eigenvalues of an economic interaction matrix determine system stability.
+Through MATLAB computation and simulation, the analysis shows whether shocks fade away or amplify over time.
+The study emphasizes the importance of matrix-based modeling and eigenvalue analysis in understanding economic dynamics and stability.
+
+Author
+Chirag Piyeja
+Contact Number:+91 7862874049
+Department of Mechanical Engineering
+Subject: Computational Engineering Lab
